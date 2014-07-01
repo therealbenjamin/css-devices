@@ -1,3 +1,3 @@
 #CSS Devices
 
-Information coming soon!
+Readymade and responsive desktop, tablet, and phones in pure SASS baby!

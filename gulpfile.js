@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var prefix = require('gulp-autoprefixer');
 var sh = require('shelljs');
 
 var paths = {
@@ -16,6 +17,7 @@ gulp.task('default', ['sass']);
 gulp.task('sass', function(done) {
   gulp.src('./css-devices.scss')
     .pipe(sass())
+    .pipe(prefix("last 2 versions", "> 1%", "Explorer 7"))
     .pipe(gulp.dest('./'))
     .pipe(minifyCss({
       keepSpecialComments: 0
