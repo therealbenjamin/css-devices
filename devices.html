@@ -2,14 +2,49 @@
 <html>
 <head>
   <meta charset="utf-8" />
-
   <title>CSS Devices</title>
 
-  <link rel="stylesheet" type="text/css" href="css-devices.min.css">
+  <!-- For demo purposes only -->
+  <link rel="stylesheet" type="text/css" href="css/grid-system.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.min.css">
+
+  <!-- Main include -->
+  <link rel="stylesheet" type="text/css" href="css/css-devices.min.css">
 </head>
 <body>
-  <div class="device desktop">
-
+  <h1 class="text-center">CSS Devices</h1>
+  <p class="text-center">Created by <a href="https://www.twitter.com/cereallarceny" target="_blank">Patrick</a> at <a href="http://gusto.is" target="_blank">Gusto</a></p>
+  <div class="grid">
+    <div class="col-1-2">
+      <div class="device browser">
+        <div class="header">
+          <div class="left">
+            <span class="button red inset"></span>
+            <span class="button yellow inset"></span>
+            <span class="button green inset"></span>
+          </div>
+          <div class="right">
+            <span class="button dark inset"></span>
+          </div>
+        </div>
+        <div class="container" style="background-image: url('images/github.png');"></div>
+      </div>
+    </div>
+    <div class="col-1-2">
+      <div class="device browser">
+        <div class="header">
+          <div class="left">
+            <span class="button red inset"></span>
+            <span class="button yellow inset"></span>
+            <span class="button green inset"></span>
+          </div>
+          <div class="right">
+            <span class="button dark inset"></span>
+          </div>
+        </div>
+        <div class="container" style="background-image: url('images/github.png');"></div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

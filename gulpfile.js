@@ -9,21 +9,21 @@ var prefix = require('gulp-autoprefixer');
 var sh = require('shelljs');
 
 var paths = {
-  sass: ['./*.scss']
+  sass: ['./scss/*.scss']
 };
 
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
-  gulp.src('./css-devices.scss')
+  gulp.src('./scss/*.scss')
     .pipe(sass())
     .pipe(prefix("last 2 versions", "> 1%", "Explorer 7"))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./css/'))
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./css/'))
     .on('end', done);
 });
 

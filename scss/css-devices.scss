@@ -1,0 +1,108 @@
+// Colors
+$black: #222;
+$white: #FAFAFA;
+$dark: #555;
+$light: #DDD;
+$red: #F06533;
+$yellow: #F2CE3B;
+$green: #AFCC17;
+$blue: #4491AB;
+
+@mixin rounded-corners($amount: 5px) {
+  border-radius: $amount;
+}
+
+@mixin drop-shadow($color: rgba($black, 0.25)) {
+  box-shadow: 0px 0px 5px $color;
+}
+
+@mixin inset-shadow($color: rgba($white, 0.75)) {
+  box-shadow: inset 0px -1px 0px $color;
+}
+
+@mixin text-shadow($color: rgba($white, 0.75)) {
+  text-shadow: 0px 1px 0px $color;
+}
+
+.device {
+  $colors: (
+    black $black,
+    white $white,
+    dark $dark,
+    light $light,
+    red $red,
+    yellow $yellow,
+    green $green,
+    blue $blue
+  );
+
+  @each $color in $colors {
+    $alt: darken(nth($color, 2), 10%);
+
+    .#{nth($color, 1)} {
+      background: nth($color, 2);
+      &.inset {
+        @include inset-shadow($alt);
+      }
+    }
+  }
+
+  &.desktop, &.browser, &.tablet, &.mobile {
+    cursor: default;
+    user-select: none;
+    .container {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50% 50%;
+    }
+  }
+
+  &.desktop {
+
+  }
+  &.browser {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: $white;
+    border: 1px solid $light;
+    @include rounded-corners();
+    @include drop-shadow();
+    .header {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      box-sizing: border-box;
+      background: $light;
+      overflow: hidden;
+      padding: 10px;
+      border-bottom: 1px solid darken($light, 10%);
+      .left { float: left; }
+      .right { float: right; }
+      .left, .right {
+        overflow: hidden;
+        * {
+          float: left;
+          margin-left: 10px;
+          &:first-child { margin-left: 0px; }
+        }
+        .button {
+          $button-size: 12px;
+          width: $button-size;
+          height: $button-size;
+          @include rounded-corners(1000px);
+        }
+      }
+    }
+  }
+  &.tablet {
+
+  }
+  &.mobile {
+
+  }
+}
