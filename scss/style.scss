@@ -1,9 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:300,700);
 
+$gusto: #F24A1E;
+
 body {
   font-family: 'Oswald', sans-serif;
   color: #444;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
+
+::selection { background: rgba($gusto, 0.75); color: #FFF; }
+::-moz-selection { background: rgba($gusto, 0.75); color: #FFF; }
 
 .text-center { text-align: center; }
 
@@ -19,8 +26,8 @@ p {
   margin-bottom: 60px;
   a {
     text-decoration: none;
-    color: #F24A1E;
+    color: $gusto;
     transition: all 0.1s linear;
-    &:hover { color: darken(#F24A1E, 10%); }
+    &:hover { color: darken($gusto, 10%); }
   }
 }

@@ -20,10 +20,6 @@ $blue: #4491AB;
   box-shadow: inset 0px -1px 0px $color;
 }
 
-@mixin text-shadow($color: rgba($white, 0.75)) {
-  text-shadow: 0px 1px 0px $color;
-}
-
 .device {
   $colors: (
     black $black,
