@@ -12,7 +12,7 @@ $blue: #4491AB;
   border-radius: $amount;
 }
 
-@mixin drop-shadow($color: rgba($black, 0.25)) {
+@mixin drop-shadow($color: rgba($black, 0.1)) {
   box-shadow: 0px 0px 5px $color;
 }
 
@@ -57,7 +57,7 @@ $blue: #4491AB;
   }
 
   &.desktop {
-
+    
   }
   &.browser {
     position: relative;
