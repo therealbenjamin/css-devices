@@ -1,0 +1,20 @@
+{
+  "name": "css-devices",
+  "version": "1.0.0",
+  "homepage": "https://github.com/gustodev/css-devices",
+  "authors": [
+    "Patrick Cason <patrick@gusto.is>"
+  ],
+  "description": "Readymade and responsive desktop, tablet, and phones in pure SASS baby!",
+  "main": "css-devices.min.css",
+  "keywords": [
+    "css",
+    "devices",
+    "responsive",
+    "desktop",
+    "tablet",
+    "phone",
+    "sass"
+  ],
+  "license": "MIT"
+}
