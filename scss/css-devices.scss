@@ -163,17 +163,18 @@ $mobile-breakpoint: 768px;
       box-sizing: border-box;
       background: $light;
       overflow: hidden;
-      padding: 20px;
     }
     .top {
       top: 0px;
       border-bottom: 1px solid darken($light, 10%);
+      padding: 20px;
     }
     .home {
       bottom: 0px;
       border-top: 1px solid darken($light, 10%);
+      padding: 10px;
       .button {
-        $button-size: 40px;
+        $button-size: 30px;
         display: block;
         margin: 0 auto;
         width: $button-size;
