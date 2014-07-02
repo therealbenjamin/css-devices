@@ -61,6 +61,25 @@
     -webkit-background-size: contain contain;
             background-size: contain;
     background-position: 50% 50%; }
+.device.desktop:after {
+  padding-top: 56.25%;
+  display: block;
+  content: ''; }
+.device.desktop .container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 20px solid #DDD;
+  border-bottom: 40px solid #DDD; }
+.device.laptop:after {
+  padding-top: 62.5%;
+  display: block;
+  content: ''; }
+.device.laptop .container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border: 15px solid #DDD; }
 .device.browser {
   height: 400px; }
   .device.browser .header {

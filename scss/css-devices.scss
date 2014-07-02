@@ -65,12 +65,36 @@ $mobile-breakpoint: 768px;
       background-position: 50% 50%;
     }
   }
-
   &.desktop {
-
+    $desktop-width: 1920px; // 21.5-inch iMac
+    $desktop-height: 1080px; // 21.5-inch iMac
+    &:after {
+      padding-top: ($desktop-height / $desktop-width) * 100%;
+      display: block;
+      content: '';
+    }
+    .container {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border: 20px solid $light;
+      border-bottom: 40px solid $light;
+    }
   }
   &.laptop {
-
+    $laptop-width: 1920px; // 15" Retina MacBook Pro
+    $laptop-height: 1200px; // 15" Retina MacBook Pro
+    &:after {
+      padding-top: ($laptop-height / $laptop-width) * 100%;
+      display: block;
+      content: '';
+    }
+    .container {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border: 15px solid $light;
+    }
   }
   &.browser {
     $browser-width: 1024px;
@@ -132,7 +156,7 @@ $mobile-breakpoint: 768px;
       }
     }
   }
-  // Since there's tangibly no difference between a tablet and a phone in terms of aesthetic style...
+  // Since there's no tangible difference between a tablet and a phone in terms of aesthetic style...
   // We can create a ready-made function and you can define your dimensions below in the mobile and tablet classes!
   @mixin create-handheld($width, $height) {
     &:after {
