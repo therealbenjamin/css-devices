@@ -103,9 +103,28 @@
     content: ''; }
   .device.laptop .container {
     border: 1px solid #c4c4c4; }
+  .device.laptop .body {
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    width: 110%;
+    height: 60px;
+    margin-left: -55%;
+    background: #DDD;
+    -webkit-transform: perspective(5px) rotateX(0.5deg);
+            transform: perspective(5px) rotateX(0.5deg);
+    border-radius: 0px 0px 5px 5px;
+    border-top: 1px solid #c4c4c4;
+    -webkit-box-shadow: inset 0px -4px 0px rgba(34, 34, 34, 0.25);
+            box-shadow: inset 0px -4px 0px rgba(34, 34, 34, 0.25); }
   @media only screen and (max-width: 768px) {
     .device.laptop {
-      border: 5px solid #DDD; } }
+      border: 5px solid #DDD; }
+      .device.laptop .body {
+        bottom: -31px;
+        -webkit-transform: perspective(4px) rotateX(1deg);
+                transform: perspective(4px) rotateX(1deg);
+        height: 30px; } }
 .device.browser {
   height: 400px; }
   .device.browser .header {

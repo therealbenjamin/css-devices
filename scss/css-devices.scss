@@ -14,12 +14,12 @@ $mobile-breakpoint: 768px;
   border-radius: $amount;
 }
 
-@mixin drop-shadow($color: rgba($black, 0.1)) {
-  box-shadow: 0px 0px 5px $color;
+@mixin drop-shadow($color: rgba($black, 0.1), $blur: 5px) {
+  box-shadow: 0px 0px $blur $color;
 }
 
-@mixin inset-shadow($color: rgba($white, 0.75)) {
-  box-shadow: inset 0px -1px 0px $color;
+@mixin inset-shadow($color: rgba($white, 0.75), $amount: -1px) {
+  box-shadow: inset 0px $amount 0px $color;
 }
 
 .device {
@@ -118,12 +118,35 @@ $mobile-breakpoint: 768px;
     $laptop-width: 1920px; // 15" Retina MacBook Pro
     $laptop-height: 1200px; // 15" Retina MacBook Pro
     @include responsive-devices($laptop-width, $laptop-height);
-    border: 15px solid $light;
-    .container {
-      border: 1px solid darken($light, 10%);
+    $laptop-border: 15px;
+    border: $laptop-border solid $light;
+    .container { border: 1px solid darken($light, 10%); }
+    .body {
+      $body-width: 110%;
+      $body-height: 60px;
+      $body-perspective: 5px;
+      position: absolute;
+      bottom: -1 * ($body-height - $body-perspective + $laptop-border);
+      left: 50%;
+      width: $body-width;
+      height: $body-height;
+      margin-left: -$body-width / 2;
+      background: $light;
+      transform: perspective($body-perspective) rotateX(0.5deg);
+      border-radius: 0px 0px 5px 5px;
+      border-top: 1px solid darken($light, 10%);
+      @include inset-shadow(rgba($black, 0.25), -4px);
     }
     @media only screen and (max-width: $mobile-breakpoint) {
-      border: 5px solid $light;
+      $laptop-border: 5px;
+      border: $laptop-border solid $light;
+      .body {
+        $body-height: 30px;
+        $body-perspective: 4px;
+        bottom: -1 * ($body-height - $body-perspective + $laptop-border);
+        transform: perspective($body-perspective) rotateX(1deg);
+        height: $body-height;
+      }
     }
   }
   &.browser {
