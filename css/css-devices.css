@@ -73,10 +73,26 @@
     content: ''; }
   .device.desktop .container {
     border: 1px solid #c4c4c4; }
+  .device.desktop .stand {
+    position: absolute;
+    bottom: -96px;
+    left: 50%;
+    width: 30%;
+    height: 60px;
+    margin-left: -15%;
+    background: #DDD;
+    -webkit-transform: perspective(4px) rotateX(0.5deg);
+            transform: perspective(4px) rotateX(0.5deg);
+    border-radius: 0px 0px 5px 5px;
+    -webkit-box-shadow: inset 0px -1px 0px rgba(34, 34, 34, 0.25);
+            box-shadow: inset 0px -1px 0px rgba(34, 34, 34, 0.25); }
   @media only screen and (max-width: 768px) {
     .device.desktop {
       border: 5px solid #DDD;
-      border-bottom: 10px solid #DDD; } }
+      border-bottom: 10px solid #DDD; }
+      .device.desktop .stand {
+        bottom: -36px;
+        height: 30px; } }
 .device.laptop {
   border: 15px solid #DDD; }
   .device.laptop:after {

@@ -80,14 +80,37 @@ $mobile-breakpoint: 768px;
     $desktop-width: 1920px; // 21.5-inch iMac
     $desktop-height: 1080px; // 21.5-inch iMac
     @include responsive-devices($desktop-width, $desktop-height);
-    border: 20px solid $light;
-    border-bottom: 40px solid $light;
+    $desktop-border: 20px;
+    border: $desktop-border solid $light;
+    border-bottom: ($desktop-border * 2) solid $light;
     .container {
       border: 1px solid darken($light, 10%);
     }
+    .stand {
+      $stand-width: 30%;
+      $stand-height: 60px;
+      $stand-perspective: 4px;
+      position: absolute;
+      bottom: -1 * ($stand-height - $stand-perspective + ($desktop-border * 2));
+      left: 50%;
+      width: $stand-width;
+      height: $stand-height;
+      margin-left: -$stand-width / 2;
+      background: $light;
+      transform: perspective($stand-perspective) rotateX(0.5deg);
+      border-radius: 0px 0px 5px 5px;
+      @include inset-shadow(rgba($black, 0.25));
+    }
     @media only screen and (max-width: $mobile-breakpoint) {
-      border: 5px solid $light;
-      border-bottom: 10px solid $light;
+      $desktop-border: 5px;
+      border: $desktop-border solid $light;
+      border-bottom: ($desktop-border * 2) solid $light;
+      .stand {
+        $stand-height: 30px;
+        $stand-perspective: 4px;
+        bottom: -1 * ($stand-height - $stand-perspective + ($desktop-border * 2));
+        height: $stand-height;
+      }
     }
   }
   &.laptop {
