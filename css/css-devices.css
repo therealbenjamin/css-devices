@@ -123,6 +123,40 @@
     padding-top: 177.5%;
     display: block;
     content: ''; }
+  .device.mobile.landscape:after {
+    padding-top: 56.33803%; }
+  .device.mobile.landscape .top, .device.mobile.landscape .home {
+    width: auto;
+    height: 100%; }
+  .device.mobile.landscape .top {
+    padding: 10px;
+    border-bottom: none;
+    border-right: 1px solid #c4c4c4; }
+  .device.mobile.landscape .home {
+    top: 0px;
+    right: 0px;
+    left: initial;
+    padding: 20px;
+    border-top: none;
+    border-left: 1px solid #c4c4c4; }
+    .device.mobile.landscape .home .button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      margin-left: -10px; }
+  @media only screen and (max-width: 768px) {
+    .device.mobile.landscape .top {
+      padding: 5px; }
+    .device.mobile.landscape .home {
+      padding: 10px; }
+      .device.mobile.landscape .home .button {
+        width: 10px;
+        height: 10px;
+        margin-top: -5px;
+        margin-left: -5px; } }
   .device.mobile .container {
     position: absolute;
     top: 0px;

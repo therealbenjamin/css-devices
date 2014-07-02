@@ -148,6 +148,51 @@ $mobile-breakpoint: 768px;
       display: block;
       content: '';
     }
+    &.landscape {
+      &:after {
+        padding-top: ($mobile-width / $mobile-height) * 100%;
+      }
+      .top, .home {
+        width: auto;
+        height: 100%;
+      }
+      .top {
+        padding: 10px;
+        border-bottom: none;
+        border-right: 1px solid darken($light, 10%);
+      }
+      .home {
+        top: 0px;
+        right: 0px;
+        left: initial;
+        padding: 20px;
+        border-top: none;
+        border-left: 1px solid darken($light, 10%);
+        .button {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          $button-size: 20px;
+          width: $button-size;
+          height: $button-size;
+          margin-top: -$button-size / 2;
+          margin-left: -$button-size / 2;
+        }
+      }
+      @media only screen and (max-width: $mobile-breakpoint) {
+        .top { padding: 5px; }
+        .home {
+          padding: 10px;
+          .button {
+            $button-size: 10px;
+            width: $button-size;
+            height: $button-size;
+            margin-top: -$button-size / 2;
+            margin-left: -$button-size / 2;
+          }
+        }
+      }
+    }
     .container {
       position: absolute;
       top: 0px;
