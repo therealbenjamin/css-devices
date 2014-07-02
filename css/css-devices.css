@@ -54,6 +54,9 @@
   -webkit-box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.1);
           box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.1); }
   .device.desktop .container, .device.laptop .container, .device.browser .container, .device.tablet .container, .device.mobile .container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -61,25 +64,30 @@
     -webkit-background-size: contain contain;
             background-size: contain;
     background-position: 50% 50%; }
-.device.desktop:after {
-  padding-top: 56.25%;
-  display: block;
-  content: ''; }
-.device.desktop .container {
-  position: absolute;
-  top: 0px;
-  left: 0px;
+.device.desktop {
   border: 20px solid #DDD;
   border-bottom: 40px solid #DDD; }
-.device.laptop:after {
-  padding-top: 62.5%;
-  display: block;
-  content: ''; }
-.device.laptop .container {
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  .device.desktop:after {
+    padding-top: 56.25%;
+    display: block;
+    content: ''; }
+  .device.desktop .container {
+    border: 1px solid #c4c4c4; }
+  @media only screen and (max-width: 768px) {
+    .device.desktop {
+      border: 5px solid #DDD;
+      border-bottom: 10px solid #DDD; } }
+.device.laptop {
   border: 15px solid #DDD; }
+  .device.laptop:after {
+    padding-top: 62.5%;
+    display: block;
+    content: ''; }
+  .device.laptop .container {
+    border: 1px solid #c4c4c4; }
+  @media only screen and (max-width: 768px) {
+    .device.laptop {
+      border: 5px solid #DDD; } }
 .device.browser {
   height: 400px; }
   .device.browser .header {
@@ -118,10 +126,6 @@
         padding-top: 75%;
         display: block;
         content: ''; }
-      .device.browser .container {
-        position: absolute;
-        top: 0px;
-        left: 0px; }
       .device.browser .header {
         padding: 4px; }
         .device.browser .header .left *, .device.browser .header .right * {
@@ -171,10 +175,6 @@
         height: 10px;
         margin-top: -5px;
         margin-left: -5px; } }
-  .device.tablet .container {
-    position: absolute;
-    top: 0px;
-    left: 0px; }
   .device.tablet .top, .device.tablet .home {
     position: absolute;
     left: 0px;
@@ -249,10 +249,6 @@
         height: 10px;
         margin-top: -5px;
         margin-left: -5px; } }
-  .device.mobile .container {
-    position: absolute;
-    top: 0px;
-    left: 0px; }
   .device.mobile .top, .device.mobile .home {
     position: absolute;
     left: 0px;
