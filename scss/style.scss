@@ -29,6 +29,9 @@ h2 {
 
 p {
   margin-top: 0px;
+  &:last-of-type {
+    margin-top: 100px;
+  }
   a {
     text-decoration: none;
     color: $gusto;
