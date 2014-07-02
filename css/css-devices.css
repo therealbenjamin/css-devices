@@ -92,6 +92,8 @@
       border-bottom: 10px solid #DDD; }
       .device.desktop .stand {
         bottom: -36px;
+        -webkit-transform: perspective(4px) rotateX(1deg);
+                transform: perspective(4px) rotateX(1deg);
         height: 30px; } }
 .device.laptop {
   border: 15px solid #DDD; }

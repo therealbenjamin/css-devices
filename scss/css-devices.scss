@@ -109,6 +109,7 @@ $mobile-breakpoint: 768px;
         $stand-height: 30px;
         $stand-perspective: 4px;
         bottom: -1 * ($stand-height - $stand-perspective + ($desktop-border * 2));
+        transform: perspective($stand-perspective) rotateX(1deg);
         height: $stand-height;
       }
     }
