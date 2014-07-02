@@ -46,14 +46,14 @@ $mobile-breakpoint: 768px;
   }
 
   &.desktop, &.laptop, &.browser, &.tablet, &.mobile {
-    cursor: default;
-    user-select: none;
     position: relative;
     width: 100%;
     height: auto;
     background: $white;
     border: 1px solid $light;
     display: inline-block;
+    cursor: default;
+    user-select: none;
     @include rounded-corners();
     @include drop-shadow();
     .container {
@@ -133,8 +133,8 @@ $mobile-breakpoint: 768px;
     }
   }
   &.tablet {
-    $tablet-width: 1024px; // iPad 2
-    $tablet-height: 768px; // iPad 2
+    $tablet-width: 768px; // iPad 2
+    $tablet-height: 1024px; // iPad 2
     &:after {
       padding-top: ($tablet-height / $tablet-width) * 100%;
       display: block;
@@ -220,9 +220,7 @@ $mobile-breakpoint: 768px;
       }
     }
     @media only screen and (max-width: $mobile-breakpoint) {
-      .top {
-        padding: 5px;
-      }
+      .top { padding: 5px; }
       .home {
         padding: 5px;
         .button {
@@ -321,9 +319,7 @@ $mobile-breakpoint: 768px;
       }
     }
     @media only screen and (max-width: $mobile-breakpoint) {
-      .top {
-        padding: 5px;
-      }
+      .top { padding: 5px; }
       .home {
         padding: 5px;
         .button {
