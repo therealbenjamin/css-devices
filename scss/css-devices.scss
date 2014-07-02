@@ -48,6 +48,14 @@ $mobile-breakpoint: 768px;
   &.desktop, &.laptop, &.browser, &.tablet, &.mobile {
     cursor: default;
     user-select: none;
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: $white;
+    border: 1px solid $light;
+    display: inline-block;
+    @include rounded-corners();
+    @include drop-shadow();
     .container {
       overflow: hidden;
       width: 100%;
@@ -67,14 +75,7 @@ $mobile-breakpoint: 768px;
   &.browser {
     $browser-width: 1024px;
     $browser-height: 768px;
-    position: relative;
-    width: 100%;
     height: 400px;
-    background: $white;
-    border: 1px solid $light;
-    @include rounded-corners();
-    @include drop-shadow();
-    display: inline-block;
     .header {
       position: absolute;
       top: 0px;
@@ -117,7 +118,7 @@ $mobile-breakpoint: 768px;
         left: 0px;
       }
       .header {
-        padding: 5px;
+        padding: 4px;
         .left, .right {
           * {
             margin-left: 5px;
@@ -132,17 +133,109 @@ $mobile-breakpoint: 768px;
     }
   }
   &.tablet {
-
+    $tablet-width: 1024px; // iPad 2
+    $tablet-height: 768px; // iPad 2
+    &:after {
+      padding-top: ($tablet-height / $tablet-width) * 100%;
+      display: block;
+      content: '';
+    }
+    &.landscape {
+      &:after {
+        padding-top: ($tablet-width / $tablet-height) * 100%;
+      }
+      .top, .home {
+        width: auto;
+        height: 100%;
+      }
+      .top {
+        padding: 10px;
+        border-bottom: none;
+        border-right: 1px solid darken($light, 10%);
+      }
+      .home {
+        top: 0px;
+        right: 0px;
+        left: initial;
+        padding: 20px;
+        border-top: none;
+        border-left: 1px solid darken($light, 10%);
+        .button {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          $button-size: 20px;
+          width: $button-size;
+          height: $button-size;
+          margin-top: -$button-size / 2;
+          margin-left: -$button-size / 2;
+        }
+      }
+      @media only screen and (max-width: $mobile-breakpoint) {
+        .top { padding: 5px; }
+        .home {
+          padding: 10px;
+          .button {
+            $button-size: 10px;
+            width: $button-size;
+            height: $button-size;
+            margin-top: -$button-size / 2;
+            margin-left: -$button-size / 2;
+          }
+        }
+      }
+    }
+    .container {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+    @include rounded-corners();
+    @include drop-shadow();
+    .top, .home {
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      z-index: 1;
+      box-sizing: border-box;
+      background: $light;
+      overflow: hidden;
+    }
+    .top {
+      top: 0px;
+      border-bottom: 1px solid darken($light, 10%);
+      padding: 15px;
+    }
+    .home {
+      bottom: 0px;
+      border-top: 1px solid darken($light, 10%);
+      padding: 10px;
+      .button {
+        $button-size: 30px;
+        display: block;
+        margin: 0 auto;
+        width: $button-size;
+        height: $button-size;
+        @include rounded-corners(1000px);
+      }
+    }
+    @media only screen and (max-width: $mobile-breakpoint) {
+      .top {
+        padding: 5px;
+      }
+      .home {
+        padding: 5px;
+        .button {
+          $button-size: 12px;
+          width: $button-size;
+          height: $button-size;
+        }
+      }
+    }
   }
   &.mobile {
     $mobile-width: 640px; // iPhone 5
     $mobile-height: 1136px; // iPhone 5
-    position: relative;
-    width: 100%;
-    height: auto;
-    background: $white;
-    border: 1px solid $light;
-    display: inline-block;
     &:after {
       padding-top: ($mobile-height / $mobile-width) * 100%;
       display: block;
@@ -212,7 +305,7 @@ $mobile-breakpoint: 768px;
     .top {
       top: 0px;
       border-bottom: 1px solid darken($light, 10%);
-      padding: 20px;
+      padding: 15px;
     }
     .home {
       bottom: 0px;
