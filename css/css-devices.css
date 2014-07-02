@@ -38,13 +38,13 @@
   .device .blue.inset {
     -webkit-box-shadow: inset 0px -1px 0px #357287;
             box-shadow: inset 0px -1px 0px #357287; }
-.device.desktop, .device.browser, .device.tablet, .device.mobile {
+.device.desktop, .device.laptop, .device.browser, .device.tablet, .device.mobile {
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none; }
-  .device.desktop .container, .device.browser .container, .device.tablet .container, .device.mobile .container {
+  .device.desktop .container, .device.laptop .container, .device.browser .container, .device.tablet .container, .device.mobile .container {
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -109,6 +109,56 @@
         .device.browser .header .left *:first-child, .device.browser .header .right *:first-child {
           margin-left: 0px; }
       .device.browser .header .left .button, .device.browser .header .right .button {
+        display: block;
         width: 12px;
         height: 12px;
         border-radius: 1000px; }
+.device.mobile {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background: #FAFAFA;
+  border: 1px solid #DDD;
+  display: inline-block;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.1);
+          box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.1); }
+  .device.mobile:after {
+    padding-top: 177.5%;
+    display: block;
+    content: ''; }
+  .device.mobile .container {
+    position: absolute;
+    top: 0px;
+    left: 0px; }
+  @media only screen and (max-width: 768px) {
+    .device.mobile.responsive-aspect .top {
+      padding: 10px; }
+    .device.mobile.responsive-aspect .home {
+      padding: 10px; }
+      .device.mobile.responsive-aspect .home .button {
+        width: 20px;
+        height: 20px; } }
+  .device.mobile .top, .device.mobile .home {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    z-index: 1;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    background: #DDD;
+    overflow: hidden;
+    padding: 20px; }
+  .device.mobile .top {
+    top: 0px;
+    border-bottom: 1px solid #c4c4c4; }
+  .device.mobile .home {
+    bottom: 0px;
+    border-top: 1px solid #c4c4c4; }
+    .device.mobile .home .button {
+      display: block;
+      margin: 0 auto;
+      width: 40px;
+      height: 40px;
+      border-radius: 1000px; }

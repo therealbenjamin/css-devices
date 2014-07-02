@@ -8,6 +8,8 @@ $yellow: #F2CE3B;
 $green: #AFCC17;
 $blue: #4491AB;
 
+$mobile-breakpoint: 768px;
+
 @mixin rounded-corners($amount: 5px) {
   border-radius: $amount;
 }
@@ -43,7 +45,7 @@ $blue: #4491AB;
     }
   }
 
-  &.desktop, &.browser, &.tablet, &.mobile {
+  &.desktop, &.laptop, &.browser, &.tablet, &.mobile {
     cursor: default;
     user-select: none;
     .container {
@@ -57,6 +59,9 @@ $blue: #4491AB;
   }
 
   &.desktop {
+
+  }
+  &.laptop {
 
   }
   &.browser {
@@ -84,7 +89,7 @@ $blue: #4491AB;
       }
     }
     &.responsive-aspect {
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: $mobile-breakpoint) {
         display: inline-block;
         height: auto;
         &:after {
@@ -121,6 +126,7 @@ $blue: #4491AB;
         }
         .button {
           $button-size: 12px;
+          display: block;
           width: $button-size;
           height: $button-size;
           @include rounded-corners(1000px);
@@ -132,6 +138,66 @@ $blue: #4491AB;
 
   }
   &.mobile {
-
+    $mobile-width: 640px; // iPhone 5
+    $mobile-height: 1136px; // iPhone 5
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: $white;
+    border: 1px solid $light;
+    display: inline-block;
+    &:after {
+      padding-top: ($mobile-height / $mobile-width) * 100%;
+      display: block;
+      content: '';
+    }
+    .container {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+    @include rounded-corners();
+    @include drop-shadow();
+    &.responsive-aspect {
+      @media only screen and (max-width: $mobile-breakpoint) {
+        .top {
+          padding: 10px;
+        }
+        .home {
+          padding: 10px;
+          .button {
+            $button-size: 20px;
+            width: $button-size;
+            height: $button-size;
+          }
+        }
+      }
+    }
+    .top, .home {
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      z-index: 1;
+      box-sizing: border-box;
+      background: $light;
+      overflow: hidden;
+      padding: 20px;
+    }
+    .top {
+      top: 0px;
+      border-bottom: 1px solid darken($light, 10%);
+    }
+    .home {
+      bottom: 0px;
+      border-top: 1px solid darken($light, 10%);
+      .button {
+        $button-size: 40px;
+        display: block;
+        margin: 0 auto;
+        width: $button-size;
+        height: $button-size;
+        @include rounded-corners(1000px);
+      }
+    }
   }
 }
