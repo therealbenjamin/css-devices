@@ -132,17 +132,17 @@ $mobile-breakpoint: 768px;
       }
     }
   }
-  &.tablet {
-    $tablet-width: 768px; // iPad 2
-    $tablet-height: 1024px; // iPad 2
+  // Since there's tangibly no difference between a tablet and a phone in terms of aesthetic style...
+  // We can create a ready-made function and you can define your dimensions below in the mobile and tablet classes!
+  @mixin create-handheld($width, $height) {
     &:after {
-      padding-top: ($tablet-height / $tablet-width) * 100%;
+      padding-top: ($height / $width) * 100%;
       display: block;
       content: '';
     }
     &.landscape {
       &:after {
-        padding-top: ($tablet-width / $tablet-height) * 100%;
+        padding-top: ($width / $height) * 100%;
       }
       .top, .home {
         width: auto;
@@ -231,103 +231,16 @@ $mobile-breakpoint: 768px;
       }
     }
   }
+  &.tablet {
+    $tablet-width: 768px; // iPad 2
+    $tablet-height: 1024px; // iPad 2
+
+    @include create-handheld($tablet-width, $tablet-height);
+  }
   &.mobile {
     $mobile-width: 640px; // iPhone 5
     $mobile-height: 1136px; // iPhone 5
-    &:after {
-      padding-top: ($mobile-height / $mobile-width) * 100%;
-      display: block;
-      content: '';
-    }
-    &.landscape {
-      &:after {
-        padding-top: ($mobile-width / $mobile-height) * 100%;
-      }
-      .top, .home {
-        width: auto;
-        height: 100%;
-      }
-      .top {
-        padding: 10px;
-        border-bottom: none;
-        border-right: 1px solid darken($light, 10%);
-      }
-      .home {
-        top: 0px;
-        right: 0px;
-        left: initial;
-        padding: 20px;
-        border-top: none;
-        border-left: 1px solid darken($light, 10%);
-        .button {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          $button-size: 20px;
-          width: $button-size;
-          height: $button-size;
-          margin-top: -$button-size / 2;
-          margin-left: -$button-size / 2;
-        }
-      }
-      @media only screen and (max-width: $mobile-breakpoint) {
-        .top { padding: 5px; }
-        .home {
-          padding: 10px;
-          .button {
-            $button-size: 10px;
-            width: $button-size;
-            height: $button-size;
-            margin-top: -$button-size / 2;
-            margin-left: -$button-size / 2;
-          }
-        }
-      }
-    }
-    .container {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-    }
-    @include rounded-corners();
-    @include drop-shadow();
-    .top, .home {
-      position: absolute;
-      left: 0px;
-      width: 100%;
-      z-index: 1;
-      box-sizing: border-box;
-      background: $light;
-      overflow: hidden;
-    }
-    .top {
-      top: 0px;
-      border-bottom: 1px solid darken($light, 10%);
-      padding: 15px;
-    }
-    .home {
-      bottom: 0px;
-      border-top: 1px solid darken($light, 10%);
-      padding: 10px;
-      .button {
-        $button-size: 30px;
-        display: block;
-        margin: 0 auto;
-        width: $button-size;
-        height: $button-size;
-        @include rounded-corners(1000px);
-      }
-    }
-    @media only screen and (max-width: $mobile-breakpoint) {
-      .top { padding: 5px; }
-      .home {
-        padding: 5px;
-        .button {
-          $button-size: 12px;
-          width: $button-size;
-          height: $button-size;
-        }
-      }
-    }
+
+    @include create-handheld($mobile-width, $mobile-height);
   }
 }
